@@ -49,7 +49,7 @@ public class Magpie
 		else if (findKeyword(statement, "mother")) >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
+				|| findKeyword(statement, "brother") >= 0
 		{
 			response = "Tell me more about your family.";
 		}
@@ -58,7 +58,7 @@ public class Magpie
         else if (findKeyword(statement, "dog")) >= 0
 				|| findKeyword(statement, "cat") >= 0
 				|| findKeyword(statement, "fish") >= 0
-				|| findKeyword(statement, "lizard") >= 0)
+				|| findKeyword(statement, "lizard") >= 0
 		{
 			response = "Tell me more about your pets.";
 		}
