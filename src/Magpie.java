@@ -65,6 +65,18 @@ public class Magpie {
 				|| statement.indexOf("Mr. A") != -1)
 			response = "It looks like Mr.A knows whats up.";
 
+		// -- I (something) YOU ---
+		else if(findKeyword(statement, "I") >= 0
+				&& findKeyword(statement, "you") >= 0
+				&& findKeyword(statement, "I") < findKeyword(statement, "you"))
+		{
+			// find whats in between
+			int somethingPos = findKeyword(statement, "I");
+			int somethingPos2 = findKeyword(statement, "you");
+			String something = statement.substring(somethingPos + 1, somethingPos2).trim();
+			response = "Why do you " + something + " me?";
+		}
+
 		// ---LIKE---
 		else if (findKeyword(statement, "I like") >= 0) {
 			// identify where the "I like" is
@@ -84,6 +96,7 @@ public class Magpie {
 
 			response = "Would you really ber happy if you had " + thing + "?";
 		}
+
 
 		// -- RANDOM --
 		else {
@@ -171,7 +184,7 @@ public class Magpie {
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 7;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -184,6 +197,12 @@ public class Magpie {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		} else if (whichResponse == 4) {
+			response = "That's cool.";
+		} else if (whichResponse == 5) {
+			response = "WHAT DID YOU SAY?";
+		} else if (whichResponse == 6) {
+			response = "Why should we nuke mars?";
 		}
 
 		return response;
